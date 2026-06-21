@@ -1,13 +1,3 @@
-@keyframes choose {
-  from {
-    transform: translateX(-100%);
-  }
-
-  to {
-    transform: translateX(0%);
-  }
-}
-
 @keyframes like-zoom {
   0% {
     scale: 1;
