@@ -12,15 +12,14 @@
   max-inline-size: 700px;
 }
 
-header {
+.main_header {
   margin-bottom: 98px;
   border: 2px solid black;
-  padding-top: 130px;
-  font-family: var(--accent-font);
+  padding: 129px 0;
+  font-family: var(--accent-font), fantasy;
   text-align: center;
   background-color: white;
   font-variation-settings: "wght" 400;
-  block-size: 368px;
 }
 
 .header__title {
@@ -66,7 +65,7 @@ header {
   right: 25px;
   opacity: 0.5;
   color: #000;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   font-weight: 400;
   font-size: 14px;
   text-shadow: 0 0 1px #fff;
@@ -109,40 +108,28 @@ header {
   min-height: 38px;
   border: none;
   padding: 0;
+  outline: 2px solid transparent;
   background-color: transparent;
+  transition: outline 0.3s ease;
   cursor: pointer;
 }
 
 .card__icon-button:focus {
-  outline: none;
+  outline: 2px solid transparent;
 }
 
-.card__icon-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
+.card__icon-button:focus-visible {
   outline: 2px solid #000;
-  outline-offset: -2px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.card__icon-button:focus-within::before {
-  z-index: 0;
-  opacity: 100;
+  transition: outline 0.3s ease;
 }
 
 .card__like-button {
   width: 130px;
   min-height: 38px;
   padding: 9px 17px;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
-  font-variation-settings: "wght" 410;
+  font-variation-settings: "wght" 400;
 }
 
 .button__container {
@@ -165,53 +152,81 @@ header {
   gap: 8px;
   min-height: 55px;
   padding: 15px 20px;
+  overflow: hidden;
 }
 
-.button:focus-visible {
+.footer__button:focus {
+  outline: none;
+}
+
+.footer__button:focus-visible {
   box-shadow: 2px 2px #000;
   outline: none;
 }
 
-.button::before {
+.card__like-button:focus-visible {
+  box-shadow: 2px 2px #000;
+  outline: none;
+}
+
+.card__like-button::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -1;
   background: #000;
   transition: transform 0.5s ease-in-out;
   transform: translateX(-100%);
   transform-origin: left;
   inline-size: 100%;
-  block-size: 100%;
 }
 
-.button:hover::before {
+.card__like-button:hover::before {
   transform: translateX(0);
 }
 
 .button__text {
   z-index: 1;
-  color: #000;
-  font-family: var(--accent-font);
+  color: #fff;
+  font-family: var(--accent-font), fantasy;
   font-weight: 400;
   font-size: 14px;
   line-height: 90%;
+  mix-blend-mode: difference;
 }
 
-.button .button__text {
-  transition: color 0.5s ease-in-out;
+.footer__button svg {
+  fill: #fff;
+  mix-blend-mode: difference;
 }
 
-.button:hover .button__text {
-  color: #fff;
+.footer__button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%);
+  transform-origin: left;
+  inline-size: 100%;
 }
 
-.button svg {
-  transition: color 0.5s ease-in-out;
+.footer__button:hover::before {
+  transform: translateX(0);
 }
 
-.button:hover svg {
-  color: #000;
+.dialog__button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%);
+  transform-origin: left;
+  inline-size: 100%;
+}
+
+.dialog__button:hover::before {
+  transform: translateX(0);
 }
 
 .main__footer {
@@ -244,10 +259,14 @@ dialog::backdrop {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
   line-height: 150%;
   text-transform: uppercase;
+}
+
+.dialog__warning svg {
+  fill: #000;
 }
 
 .dialog__button {
@@ -257,6 +276,7 @@ dialog::backdrop {
   width: 100%;
   min-height: 38px;
   padding: 9px 17px;
+  text-transform: uppercase;
 }
 
 @media (width <= 450px) {
@@ -277,5 +297,11 @@ dialog::backdrop {
   .dialog {
     min-width: 341px;
     padding: 30px 40px;
+  }
+}
+
+@media (width <= 375px) {
+  .main_header {
+    padding: 122px 0;
   }
 }
