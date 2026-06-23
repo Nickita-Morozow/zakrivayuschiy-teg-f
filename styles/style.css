@@ -115,12 +115,11 @@
 }
 
 .card__icon-button:focus {
-  outline: 2px solid transparent;
+  outline: none;
 }
 
 .card__icon-button:focus-visible {
   outline: 2px solid #000;
-  transition: outline 0.3s ease;
 }
 
 .card__like-button {
@@ -148,28 +147,22 @@
   cursor: pointer;
 }
 
-.footer__button {
-  gap: 8px;
-  min-height: 55px;
-  padding: 15px 20px;
-  overflow: hidden;
-}
-
-.footer__button:focus {
+.button:focus {
   outline: none;
 }
 
-.footer__button:focus-visible {
+.button:focus-visible {
   box-shadow: 2px 2px #000;
   outline: none;
 }
 
-.card__like-button:focus-visible {
-  box-shadow: 2px 2px #000;
-  outline: none;
+
+.main__footer {
+  display: flex;
+  justify-content: center;
 }
 
-.card__like-button::before {
+.button::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -180,7 +173,7 @@
   inline-size: 100%;
 }
 
-.card__like-button:hover::before {
+.button:hover::before {
   transform: translateX(0);
 }
 
@@ -194,44 +187,16 @@
   mix-blend-mode: difference;
 }
 
+.footer__button {
+  gap: 8px;
+  min-height: 55px;
+  padding: 15px 20px;
+  overflow: hidden;
+}
+
 .footer__button svg {
   fill: #fff;
   mix-blend-mode: difference;
-}
-
-.footer__button::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: #000;
-  transition: transform 0.5s ease-in-out;
-  transform: translateX(-100%);
-  transform-origin: left;
-  inline-size: 100%;
-}
-
-.footer__button:hover::before {
-  transform: translateX(0);
-}
-
-.dialog__button::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: #000;
-  transition: transform 0.5s ease-in-out;
-  transform: translateX(-100%);
-  transform-origin: left;
-  inline-size: 100%;
-}
-
-.dialog__button:hover::before {
-  transform: translateX(0);
-}
-
-.main__footer {
-  display: flex;
-  justify-content: center;
 }
 
 dialog::backdrop {
